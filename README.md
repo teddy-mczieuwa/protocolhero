@@ -1,54 +1,101 @@
-# React + TypeScript + Vite
+# ProtocolHero - FormBuilder Assessment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The FormBuilder allows users to create custom forms with various input types, styling options, and field properties.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Two-panel Layout**: Side-by-side form preview and styling options interface
+- **Dynamic Field Creation**: Support for various input types (text, email, checkbox, etc.)
+- **Visual Customization**: Easily change background colors, font families, and field labels
+- **Field Property Editing**: Modify labels, placeholders, and field types
+- **Intuitive Interface**: Drag and drop-style form building experience
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Prerequisites
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- Node.js (v18 or higher recommended)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository
+
+   ```bash
+   git clone https://github.com/yourusername/protocolhero.git
+   cd protocolhero
+   ```
+
+2. Install dependencies
+
+   ```bash
+   npm install
+   # or
+   yarn
+   ```
+
+3. Start the development server
+
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+4. Open your browser and navigate to `http://localhost:5173` to view the application
+
+## Project Structure
+
+```
+protocolhero/
+├── public/                # Static files
+├── src/
+│   ├── assets/            # Images, fonts, etc.
+│   ├── components/        # Shared components
+│   ├── features/
+│   │   └── form-builder/  # Form Builder feature
+│   │       ├── components/# UI components for the form builder
+│   │       ├── hooks/     # Custom React hooks
+│   │       ├── types/     # TypeScript type definitions
+│   │       └── utils/     # Utility functions
+│   ├── App.tsx            # Main application component
+│   └── main.tsx           # Entry point
+├── .gitignore
+├── package.json
+├── tsconfig.json
+└── README.md
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Tech Stack
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- **React**: UI library
+- **TypeScript**: For type safety
+- **Vite**: Build tool and dev server
+- **TailwindCSS**: Utility-first CSS framework
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+## Building for Production
+
+To build the app for production, run:
+
+```bash
+npm run build
+# or
+yarn build
 ```
+
+The build artifacts will be stored in the `dist/` directory.
+
+## Preview Production Build
+
+To preview the production build locally:
+
+```bash
+npm run preview
+# or
+yarn preview
+```
+
+## Development
+
+- `npm run lint` - Run ESLint to check for code quality and style issues
+- `npm run build` - Build the project for production
