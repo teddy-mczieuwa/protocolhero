@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import FormProperties from './FormProperties';
 import { FieldType } from '../types';
 
@@ -35,9 +36,10 @@ const FormSettings: React.FC<FormSettingsProps> = ({
   updateFieldPlaceholder,
   removeField
 }) => {
+  const { t } = useTranslation('common');
   return (
     <div className="w-full md:w-80 border rounded-lg shadow-md p-6 bg-white">
-      <h2 className="text-xl font-bold mb-6 text-gray-700">Background Color</h2>
+      <h2 className="text-xl font-bold mb-6 text-gray-700">{t('formBuilder.formSettings.background')}</h2>
       <div className="flex gap-3 mb-6">
         {colorOptions.map((color) => (
           <button
@@ -49,7 +51,7 @@ const FormSettings: React.FC<FormSettingsProps> = ({
         ))}
       </div>
       
-      <h2 className="text-xl font-bold mb-4 text-gray-700">Font Family</h2>
+      <h2 className="text-xl font-bold mb-4 text-gray-700">{t('formBuilder.formSettings.font')}</h2>
       <div className="mb-6">
         <select 
           value={fontFamily}
@@ -62,7 +64,7 @@ const FormSettings: React.FC<FormSettingsProps> = ({
         </select>
       </div>
       
-      <h2 className="text-xl font-bold mb-4 text-gray-700">Form Labels</h2>
+      <h2 className="text-xl font-bold mb-4 text-gray-700">{t('formBuilder.formSettings.showLabels')}</h2>
       <div className="relative inline-block w-12 mr-2 align-middle select-none transition duration-200 ease-in">
         <label className="flex items-center cursor-pointer">
           <div className="relative">
@@ -76,7 +78,7 @@ const FormSettings: React.FC<FormSettingsProps> = ({
             <div className={`absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition-transform transform ${showLabels ? 'translate-x-6' : ''}`}></div>
           </div>
           <div className="ml-3 text-gray-700 font-medium">
-            Turned {showLabels ? 'ON' : 'OFF'}
+            {showLabels ? t('formBuilder.buttons.on', 'ON') : t('formBuilder.buttons.off', 'OFF')}
           </div>
         </label>
       </div>

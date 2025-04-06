@@ -1,0 +1,67 @@
+{
+  "formBuilder": {
+    "title": "Formular-Builder",
+    "header": {
+      "title": "Erstellen Sie Ihr benutzerdefiniertes Formular",
+      "subtitle": "Erstellen, anpassen und Vorschau Ihres Formulars"
+    },
+    "sidebar": {
+      "dashboard": "Dashboard",
+      "formBuilder": "Formular-Builder",
+      "templates": "Vorlagen",
+      "settings": "Einstellungen"
+    },
+    "formPreview": {
+      "title": "Formularvorschau",
+      "addField": "Feld hinzufügen",
+      "defaultTitle": "Mein Formular",
+      "searchFields": "Suchen..."
+    },
+    "formSettings": {
+      "title": "Formulareinstellungen",
+      "appearance": "Aussehen",
+      "background": "Hintergrundfarbe",
+      "font": "Schriftart",
+      "showLabels": "Beschriftungen anzeigen",
+      "fieldSettings": "Feldeinstellungen",
+      "label": "Beschriftung",
+      "type": "Typ",
+      "placeholder": "Platzhalter",
+      "removeField": "Feld entfernen"
+    },
+    "fieldTypes": {
+      "text": "Text",
+      "email": "E-Mail",
+      "number": "Nummer",
+      "password": "Passwort",
+      "checkbox": "Kontrollkästchen",
+      "radio": "Radio-Button",
+      "select": "Auswahlfeld",
+      "textarea": "Textbereich"
+    },
+    "placeholders": {
+      "firstName": "Max",
+      "lastName": "Mustermann",
+      "email": "max.mustermann@beispiel.de",
+      "formTitle": "Formulartitel eingeben"
+    },
+    "labels": {
+      "firstName": "Vorname",
+      "lastName": "Nachname",
+      "email": "E-Mail",
+      "phoneNumber": "Telefonnummer"
+    },
+    "buttons": {
+      "save": "Speichern",
+      "cancel": "Abbrechen",
+      "submit": "Absenden",
+      "on": "EIN",
+      "off": "AUS"
+    },
+    "language": {
+      "title": "Sprache",
+      "english": "Englisch",
+      "german": "Deutsch"
+    }
+  }
+}

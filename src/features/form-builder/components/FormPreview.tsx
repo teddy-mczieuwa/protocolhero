@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { FieldType } from '../types';
 import FormField from './FormField';
 import FieldMenu from './FieldMenu';
@@ -34,6 +35,8 @@ const FormPreview: React.FC<FormPreviewProps> = ({
   updateFieldValue,
   toggleActiveField
 }) => {
+  const { t } = useTranslation('common');
+  
   return (
     <div className="flex-1 border rounded-lg shadow-md overflow-hidden" style={{ backgroundColor: bgColor, fontFamily }}>
       <div className="p-6">
@@ -65,7 +68,7 @@ const FormPreview: React.FC<FormPreviewProps> = ({
             className="flex items-center justify-center w-full border-2 border-dashed border-blue-400 text-blue-500 rounded-lg py-3 hover:bg-blue-50"
             onClick={toggleFieldMenu}
           >
-            <span className="mr-1 font-bold">+</span> Add New Field
+            <span className="mr-1 font-bold">+</span> {t('formBuilder.formPreview.addField')}
           </button>
           <FieldMenu show={showFieldMenu} onAddField={(type) => {
             addField(type);

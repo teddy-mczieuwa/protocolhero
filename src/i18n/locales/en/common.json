@@ -1,0 +1,67 @@
+{
+  "formBuilder": {
+    "title": "Form Builder",
+    "header": {
+      "title": "Build your custom form",
+      "subtitle": "Create, customize and preview your form"
+    },
+    "sidebar": {
+      "dashboard": "Dashboard",
+      "formBuilder": "Form Builder",
+      "templates": "Templates",
+      "settings": "Settings"
+    },
+    "formPreview": {
+      "title": "Form Preview",
+      "addField": "Add Field",
+      "defaultTitle": "My Form",
+      "searchFields": "Search..."
+    },
+    "formSettings": {
+      "title": "Form Settings",
+      "appearance": "Appearance",
+      "background": "Background Color",
+      "font": "Font Family",
+      "showLabels": "Show Labels",
+      "fieldSettings": "Field Settings",
+      "label": "Label",
+      "type": "Type",
+      "placeholder": "Placeholder",
+      "removeField": "Remove Field"
+    },
+    "fieldTypes": {
+      "text": "Text",
+      "email": "Email",
+      "number": "Number",
+      "password": "Password",
+      "checkbox": "Checkbox",
+      "radio": "Radio",
+      "select": "Select",
+      "textarea": "Text Area"
+    },
+    "placeholders": {
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "john.doe@example.com",
+      "formTitle": "Enter form title"
+    },
+    "labels": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "phoneNumber": "Phone Number"
+    },
+    "buttons": {
+      "save": "Save",
+      "cancel": "Cancel",
+      "submit": "Submit",
+      "on": "ON",
+      "off": "OFF"
+    },
+    "language": {
+      "title": "Language",
+      "english": "English",
+      "german": "German"
+    }
+  }
+}
