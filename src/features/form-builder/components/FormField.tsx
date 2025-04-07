@@ -54,12 +54,17 @@ const FormField: React.FC<FormFieldProps> = ({
             <option value="option3">Option 3</option>
           </select>
         ) : field.inputType === 'checkbox' ? (
-          <input
-            type="checkbox"
-            checked={field.value === 'true'}
-            onChange={(e) => updateFieldValue(field.id, e.target.checked ? 'true' : 'false')}
-            className="h-4 w-4 md:h-5 md:w-5 mt-1"
-          />
+          <div className="flex items-center">
+            <label className="relative inline-flex items-center cursor-pointer">
+              <input
+                type="checkbox"
+                checked={field.value === 'true'}
+                onChange={(e) => updateFieldValue(field.id, e.target.checked ? 'true' : 'false')}
+                className="sr-only peer"
+              />
+              <div className="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-2 peer-focus:ring-blue-300 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-green-400"></div>
+            </label>
+          </div>
         ) : field.inputType === 'radio' ? (
           <div className="flex flex-col space-y-3 w-full">
             <div className="flex items-center space-x-2">
