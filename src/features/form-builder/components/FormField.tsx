@@ -1,5 +1,6 @@
 import React from 'react';
 import { FieldType } from '../types';
+// Remove unused import
 
 interface FormFieldProps {
   field: FieldType;
@@ -32,21 +33,33 @@ const FormField: React.FC<FormFieldProps> = ({
       onClick={handleClick}
     >
       {showLabels && (
-        <label className="block text-gray-700 text-sm md:text-base mb-1">{field.label}</label>
+        <label 
+          htmlFor={`field-${field.id}`} 
+          className="block text-gray-700 text-sm md:text-base mb-1"
+        >
+          {field.label}
+          {field.validation?.required && <span className="text-red-500 ml-1">*</span>}
+        </label>
       )}
       <div className="flex">
         {field.inputType === 'textarea' ? (
           <textarea
+            id={`field-${field.id}`}
             placeholder={field.placeholder}
             value={field.value}
             onChange={(e) => updateFieldValue(field.id, e.target.value)}
-            className="border rounded py-1 md:py-2 px-2 md:px-3 text-sm md:text-base w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className={`border rounded py-1 md:py-2 px-2 md:px-3 text-sm md:text-base w-full focus:outline-none focus:ring-2 focus:ring-blue-500 ${field.isValid === false ? 'border-red-500' : ''}`}
+            aria-invalid={field.isValid === false}
+            aria-describedby={field.isValid === false ? `error-${field.id}` : undefined}
           />
         ) : field.inputType === 'select' ? (
           <select
+            id={`field-${field.id}`}
             value={field.value}
             onChange={(e) => updateFieldValue(field.id, e.target.value)}
-            className="border rounded py-1 md:py-2 px-2 md:px-3 text-sm md:text-base w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className={`border rounded py-1 md:py-2 px-2 md:px-3 text-sm md:text-base w-full focus:outline-none focus:ring-2 focus:ring-blue-500 ${field.isValid === false ? 'border-red-500' : ''}`}
+            aria-invalid={field.isValid === false}
+            aria-describedby={field.isValid === false ? `error-${field.id}` : undefined}
           >
             <option value="">Select an option</option>
             <option value="option1">Option 1</option>
@@ -54,7 +67,7 @@ const FormField: React.FC<FormFieldProps> = ({
             <option value="option3">Option 3</option>
           </select>
         ) : field.inputType === 'checkbox' ? (
-          <div className="flex items-center">
+          <div className="flex items-center" id={`field-${field.id}`}>
             <label className="relative inline-flex items-center cursor-pointer">
               <input
                 type="checkbox"
@@ -66,7 +79,7 @@ const FormField: React.FC<FormFieldProps> = ({
             </label>
           </div>
         ) : field.inputType === 'radio' ? (
-          <div className="flex flex-col space-y-3 w-full">
+          <div className="flex flex-col space-y-3 w-full" id={`field-${field.id}`}>
             <div className="flex items-center space-x-2">
               <input
                 type="radio"
@@ -94,16 +107,30 @@ const FormField: React.FC<FormFieldProps> = ({
           </div>
         ) : (
           <input
+            id={`field-${field.id}`}
             type={field.inputType}
             placeholder={field.placeholder}
             value={field.value}
             onChange={(e) => updateFieldValue(field.id, e.target.value)}
-            className="border rounded py-1 md:py-2 px-2 md:px-3 text-sm md:text-base w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className={`border rounded py-1 md:py-2 px-2 md:px-3 text-sm md:text-base w-full focus:outline-none focus:ring-2 focus:ring-blue-500 ${field.isValid === false ? 'border-red-500' : ''}`}
+            aria-invalid={field.isValid === false}
+            aria-describedby={field.isValid === false ? `error-${field.id}` : undefined}
           />
+        )}
+        {/* Display validation error message if field is invalid */}
+        {field.isValid === false && field.errorMessage && (
+          <div 
+            id={`error-${field.id}`} 
+            className="text-red-500 text-sm mt-1 absolute right-10"
+            aria-live="polite"
+          >
+            {field.errorMessage}
+          </div>
         )}
         <button 
           className="ml-1 md:ml-2 p-1 md:p-2 border rounded flex items-center justify-center"
           onClick={stopPropagation}
+          aria-label="Field options"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 md:h-5 md:w-5" viewBox="0 0 20 20" fill="currentColor">
             <path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z" />

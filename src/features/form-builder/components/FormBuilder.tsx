@@ -24,6 +24,8 @@ const FormBuilder: React.FC = () => {
     updateFieldType,
     updateFieldLabel,
     updateFieldPlaceholder,
+    updateFieldValidation,
+    updateFieldValidationMessages,
     toggleActiveField
   } = useFormFields([
     { id: 1, value: '', inputType: 'text', label: 'First Name', placeholder: 'John' },
@@ -103,6 +105,8 @@ const FormBuilder: React.FC = () => {
             updateFieldLabel={updateFieldLabel}
             updateFieldType={updateFieldType}
             updateFieldPlaceholder={updateFieldPlaceholder}
+            updateFieldValidation={updateFieldValidation}
+            updateFieldValidationMessages={updateFieldValidationMessages}
             removeField={removeField}
           />
         </div>

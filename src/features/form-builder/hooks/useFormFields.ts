@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { FieldType } from '../types';
-import { createNewField, updateField, removeFieldById } from '../utils/fieldUtils';
+import { FieldType, ValidationRule, ValidationMessages } from '../types';
+import { createNewField, updateField, removeFieldById, validateField, validateForm, isFormValid } from '../utils/fieldUtils';
 
 export const useFormFields = (initialFields: FieldType[] = []) => {
   const [fields, setFields] = useState<FieldType[]>(initialFields);
@@ -23,7 +23,19 @@ export const useFormFields = (initialFields: FieldType[] = []) => {
   };
   
   const updateFieldValue = (id: number, value: string) => {
-    setFields(updateField(fields, id, { value }));
+    // Update field value first
+    const updatedFields = updateField(fields, id, { value });
+    // Then validate the updated field
+    const fieldToValidate = updatedFields.find(field => field.id === id);
+    if (fieldToValidate) {
+      const validatedField = validateField(fieldToValidate);
+      setFields(updateField(updatedFields, id, { 
+        isValid: validatedField.isValid, 
+        errorMessage: validatedField.errorMessage 
+      }));
+    } else {
+      setFields(updatedFields);
+    }
   };
 
   const updateFieldType = (id: number, inputType: string) => {
@@ -37,11 +49,39 @@ export const useFormFields = (initialFields: FieldType[] = []) => {
   const updateFieldPlaceholder = (id: number, placeholder: string) => {
     setFields(updateField(fields, id, { placeholder }));
   };
+  
+  const updateFieldValidation = (id: number, validation: ValidationRule) => {
+    const updatedFields = updateField(fields, id, { validation });
+    const fieldToValidate = updatedFields.find(field => field.id === id);
+    if (fieldToValidate) {
+      const validatedField = validateField(fieldToValidate);
+      setFields(updateField(updatedFields, id, { 
+        isValid: validatedField.isValid, 
+        errorMessage: validatedField.errorMessage 
+      }));
+    } else {
+      setFields(updatedFields);
+    }
+  };
+  
+  const updateFieldValidationMessages = (id: number, validationMessages: ValidationMessages) => {
+    setFields(updateField(fields, id, { validationMessages }));
+  };
 
   const toggleActiveField = (id: number) => {
     setActiveField(id === activeField ? null : id);
   };
 
+  // Validate all form fields
+  const validateAllFields = () => {
+    setFields(validateForm(fields));
+  };
+  
+  // Check if form is valid
+  const checkFormValidity = () => {
+    return isFormValid(fields);
+  };
+  
   return {
     fields,
     activeField,
@@ -51,6 +91,10 @@ export const useFormFields = (initialFields: FieldType[] = []) => {
     updateFieldType,
     updateFieldLabel,
     updateFieldPlaceholder,
-    toggleActiveField
+    updateFieldValidation,
+    updateFieldValidationMessages,
+    toggleActiveField,
+    validateAllFields,
+    isFormValid: checkFormValidity
   };
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import FormProperties from './FormProperties';
-import { FieldType } from '../types';
+import { FieldType, ValidationRule, ValidationMessages } from '../types';
 
 interface FormSettingsProps {
   bgColor: string;
@@ -17,6 +17,8 @@ interface FormSettingsProps {
   updateFieldLabel: (id: number, label: string) => void;
   updateFieldType: (id: number, inputType: string) => void;
   updateFieldPlaceholder: (id: number, placeholder: string) => void;
+  updateFieldValidation?: (id: number, validation: ValidationRule) => void;
+  updateFieldValidationMessages?: (id: number, validationMessages: ValidationMessages) => void;
   removeField: (id: number) => void;
 }
 
@@ -34,6 +36,8 @@ const FormSettings: React.FC<FormSettingsProps> = ({
   updateFieldLabel,
   updateFieldType,
   updateFieldPlaceholder,
+  updateFieldValidation,
+  updateFieldValidationMessages,
   removeField
 }) => {
   const { t } = useTranslation('common');
@@ -90,6 +94,8 @@ const FormSettings: React.FC<FormSettingsProps> = ({
         updateFieldLabel={updateFieldLabel}
         updateFieldType={updateFieldType}
         updateFieldPlaceholder={updateFieldPlaceholder}
+        updateFieldValidation={updateFieldValidation}
+        updateFieldValidationMessages={updateFieldValidationMessages}
         removeField={removeField}
       />
     </div>
