@@ -3,11 +3,17 @@ import Sidebar from './Sidebar';
 import FormHeader from './FormHeader';
 import FormPreview from './FormPreview';
 import FormSettings from './FormSettings';
+import FormPreviewModal from './FormPreviewModal';
 import { useFormFields } from '../hooks/useFormFields';
 import { useFormSettings } from '../hooks/useFormSettings';
 
 const FormBuilder: React.FC = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [isPreviewModalOpen, setIsPreviewModalOpen] = useState(false);
+  
+  const togglePreviewModal = () => {
+    setIsPreviewModalOpen(!isPreviewModalOpen);
+  };
   // Initialize form fields with default data
   const {
     fields,
@@ -60,7 +66,7 @@ const FormBuilder: React.FC = () => {
       
       {/* Main content area */}
       <div className="flex-1 bg-gray-100 p-4 md:p-8">
-        <FormHeader />
+        <FormHeader togglePreviewModal={togglePreviewModal} />
 
         <div className="flex flex-col md:flex-row gap-6 mt-12 md:mt-0">
           {/* Form Preview */}
@@ -78,6 +84,8 @@ const FormBuilder: React.FC = () => {
             addField={addField}
             updateFieldValue={updateFieldValue}
             toggleActiveField={toggleActiveField}
+            isPreviewModalOpen={isPreviewModalOpen}
+            togglePreviewModal={togglePreviewModal}
           />
 
           {/* Right panel - Settings */}
@@ -99,6 +107,17 @@ const FormBuilder: React.FC = () => {
           />
         </div>
       </div>
+
+      {/* Form Preview Modal */}
+      <FormPreviewModal
+        isOpen={isPreviewModalOpen}
+        onClose={() => setIsPreviewModalOpen(false)}
+        formTitle={formTitle}
+        fields={fields}
+        showLabels={showLabels}
+        bgColor={bgColor}
+        fontFamily={fontFamily}
+      />
     </div>
   );
 };

@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { FieldType } from '../types';
 import FormField from './FormField';
 import FieldMenu from './FieldMenu';
-import FormPreviewModal from './FormPreviewModal';
 
 interface FormPreviewProps {
   formTitle: string;
@@ -19,6 +18,8 @@ interface FormPreviewProps {
   addField: (type: string) => void;
   updateFieldValue: (id: number, value: string) => void;
   toggleActiveField: (id: number) => void;
+  isPreviewModalOpen: boolean;
+  togglePreviewModal: () => void;
 }
 
 const FormPreview: React.FC<FormPreviewProps> = ({
@@ -34,10 +35,9 @@ const FormPreview: React.FC<FormPreviewProps> = ({
   setShowFieldMenu,
   addField,
   updateFieldValue,
-  toggleActiveField
+  toggleActiveField,
 }) => {
   const { t } = useTranslation('common');
-  const [isPreviewModalOpen, setIsPreviewModalOpen] = useState(false);
   
   return (
     <div className="flex-1 border rounded-lg shadow-md" style={{ backgroundColor: bgColor, fontFamily }}>
@@ -50,7 +50,6 @@ const FormPreview: React.FC<FormPreviewProps> = ({
           className="w-full text-lg md:text-xl font-bold mb-4 md:mb-6 border-b-2 text-gray-800 pb-2 bg-white outline-none"
         />
         
-        {/* Form Fields */}
         <div className="space-y-4">
           {fields.map((field) => (
             <FormField
@@ -64,7 +63,6 @@ const FormPreview: React.FC<FormPreviewProps> = ({
           ))}
         </div>
         
-        {/* Add Field Button */}
         <div className="relative mt-6">
           <button 
             className="flex items-center justify-center w-full border-2 border-dashed border-blue-400 text-blue-500 rounded-lg py-2 md:py-3 hover:bg-blue-50"
@@ -77,28 +75,7 @@ const FormPreview: React.FC<FormPreviewProps> = ({
             setShowFieldMenu(false);
           }} />
         </div>
-        
-        {/* Publish Form Button */}
-        <div className="mt-6">
-          <button 
-            className="flex items-center justify-center w-full bg-blue-600 text-white rounded-lg py-2 md:py-3 hover:bg-blue-700 transition"
-            onClick={() => setIsPreviewModalOpen(true)}
-          >
-            {t('formBuilder.formPreview.publishForm', 'Publish Form')}
-          </button>
-        </div>
       </div>
-      
-      {/* Form Preview Modal */}
-      <FormPreviewModal
-        isOpen={isPreviewModalOpen}
-        onClose={() => setIsPreviewModalOpen(false)}
-        formTitle={formTitle}
-        fields={fields}
-        showLabels={showLabels}
-        bgColor={bgColor}
-        fontFamily={fontFamily}
-      />
     </div>
   );
 };

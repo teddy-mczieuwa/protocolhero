@@ -1,7 +1,11 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-const FormHeader: React.FC = () => {
+interface FormHeaderProps {
+  togglePreviewModal: () => void;
+}
+
+const FormHeader: React.FC<FormHeaderProps> = ({ togglePreviewModal }) => {
   const { t } = useTranslation('common');
   
   return (
@@ -11,7 +15,10 @@ const FormHeader: React.FC = () => {
         <span className="mx-2">&gt;</span>
         <span>{t('formBuilder.header.title')}</span>
       </div>
-      <button className="bg-blue-500 hover:bg-blue-600 px-3 sm:px-4 py-1 sm:py-2 text-sm sm:text-base text-white rounded-md">
+      <button 
+        className="bg-blue-500 hover:bg-blue-600 px-3 sm:px-4 py-1 sm:py-2 text-sm sm:text-base text-white rounded-md"
+        onClick={togglePreviewModal}
+      >
         {t('formBuilder.buttons.publish')}
       </button>
     </div>
