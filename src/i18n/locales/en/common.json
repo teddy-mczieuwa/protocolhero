@@ -52,7 +52,7 @@
       "phoneNumber": "Phone Number"
     },
     "buttons": {
-      "save": "Save",
+      "publish": "Publish Form",
       "cancel": "Cancel",
       "submit": "Submit",
       "on": "ON",

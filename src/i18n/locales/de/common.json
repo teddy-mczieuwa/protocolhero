@@ -52,7 +52,7 @@
       "phoneNumber": "Telefonnummer"
     },
     "buttons": {
-      "save": "Speichern",
+      "publish": "Formular veröffentlichen",
       "cancel": "Abbrechen",
       "submit": "Absenden",
       "on": "EIN",

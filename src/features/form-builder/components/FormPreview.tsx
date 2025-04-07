@@ -38,14 +38,14 @@ const FormPreview: React.FC<FormPreviewProps> = ({
   const { t } = useTranslation('common');
   
   return (
-    <div className="flex-1 border rounded-lg shadow-md overflow-hidden" style={{ backgroundColor: bgColor, fontFamily }}>
-      <div className="p-6">
+    <div className="flex-1 border rounded-lg shadow-md" style={{ backgroundColor: bgColor, fontFamily }}>
+      <div className="p-3 md:p-6">
         {/* Form Title */}
         <input 
           type="text" 
           value={formTitle}
           onChange={(e) => setFormTitle(e.target.value)}
-          className="w-full text-xl font-bold mb-6 border-b-2 text-gray-800 pb-2 bg-white outline-none"
+          className="w-full text-lg md:text-xl font-bold mb-4 md:mb-6 border-b-2 text-gray-800 pb-2 bg-white outline-none"
         />
         
         {/* Form Fields */}
@@ -65,7 +65,7 @@ const FormPreview: React.FC<FormPreviewProps> = ({
         {/* Add Field Button */}
         <div className="relative mt-6">
           <button 
-            className="flex items-center justify-center w-full border-2 border-dashed border-blue-400 text-blue-500 rounded-lg py-3 hover:bg-blue-50"
+            className="flex items-center justify-center w-full border-2 border-dashed border-blue-400 text-blue-500 rounded-lg py-2 md:py-3 hover:bg-blue-50"
             onClick={toggleFieldMenu}
           >
             <span className="mr-1 font-bold">+</span> {t('formBuilder.formPreview.addField')}

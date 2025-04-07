@@ -38,9 +38,9 @@ const FormSettings: React.FC<FormSettingsProps> = ({
 }) => {
   const { t } = useTranslation('common');
   return (
-    <div className="w-full md:w-80 border rounded-lg shadow-md p-6 bg-white">
-      <h2 className="text-xl font-bold mb-6 text-gray-700">{t('formBuilder.formSettings.background')}</h2>
-      <div className="flex gap-3 mb-6">
+    <div className="w-full md:w-80 border rounded-lg shadow-md p-4 md:p-6 bg-white">
+      <h2 className="text-lg md:text-xl font-bold mb-4 md:mb-6 text-gray-700">{t('formBuilder.formSettings.background')}</h2>
+      <div className="flex flex-wrap gap-2 md:gap-3 mb-4 md:mb-6">
         {colorOptions.map((color) => (
           <button
             key={color}
@@ -51,8 +51,8 @@ const FormSettings: React.FC<FormSettingsProps> = ({
         ))}
       </div>
       
-      <h2 className="text-xl font-bold mb-4 text-gray-700">{t('formBuilder.formSettings.font')}</h2>
-      <div className="mb-6">
+      <h2 className="text-lg md:text-xl font-bold mb-3 md:mb-4 text-gray-700">{t('formBuilder.formSettings.font')}</h2>
+      <div className="mb-4 md:mb-6">
         <select 
           value={fontFamily}
           onChange={(e) => setFontFamily(e.target.value)}
@@ -64,7 +64,7 @@ const FormSettings: React.FC<FormSettingsProps> = ({
         </select>
       </div>
       
-      <h2 className="text-xl font-bold mb-4 text-gray-700">{t('formBuilder.formSettings.showLabels')}</h2>
+      <h2 className="text-lg md:text-xl font-bold mb-3 md:mb-4 text-gray-700">{t('formBuilder.formSettings.showLabels')}</h2>
       <div className="relative inline-block w-12 mr-2 align-middle select-none transition duration-200 ease-in">
         <label className="flex items-center cursor-pointer">
           <div className="relative">

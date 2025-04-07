@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Sidebar from './Sidebar';
 import FormHeader from './FormHeader';
 import FormPreview from './FormPreview';
@@ -7,6 +7,7 @@ import { useFormFields } from '../hooks/useFormFields';
 import { useFormSettings } from '../hooks/useFormSettings';
 
 const FormBuilder: React.FC = () => {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   // Initialize form fields with default data
   const {
     fields,
@@ -41,15 +42,27 @@ const FormBuilder: React.FC = () => {
   } = useFormSettings();
 
   return (
-    <div className="flex flex-col md:flex-row min-h-screen bg-gray-900">
+    <div className="flex flex-col md:flex-row min-h-screen bg-gray-900 relative">
+      {/* Mobile menu button */}
+      <button 
+        className="md:hidden fixed top-4 left-4 z-20 bg-gray-800 text-white p-2 rounded-md"
+        onClick={() => setSidebarOpen(!sidebarOpen)}
+      >
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={sidebarOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
+        </svg>
+      </button>
+      
       {/* Left sidebar - Navigation */}
-      <Sidebar />
+      <div className={`${sidebarOpen ? 'fixed inset-0 z-10 bg-gray-900 bg-opacity-80' : 'hidden'} md:block md:relative md:z-auto`}>
+        <Sidebar onClose={() => setSidebarOpen(false)} />
+      </div>
       
       {/* Main content area */}
-      <div className="flex-1 bg-gray-100 p-8">
+      <div className="flex-1 bg-gray-100 p-4 md:p-8">
         <FormHeader />
 
-        <div className="flex flex-col md:flex-row gap-6">
+        <div className="flex flex-col md:flex-row gap-6 mt-12 md:mt-0">
           {/* Form Preview */}
           <FormPreview
             formTitle={formTitle}
