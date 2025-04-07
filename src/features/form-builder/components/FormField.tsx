@@ -60,6 +60,33 @@ const FormField: React.FC<FormFieldProps> = ({
             onChange={(e) => updateFieldValue(field.id, e.target.checked ? 'true' : 'false')}
             className="h-4 w-4 md:h-5 md:w-5 mt-1"
           />
+        ) : field.inputType === 'radio' ? (
+          <div className="flex flex-col space-y-3 w-full">
+            <div className="flex items-center space-x-2">
+              <input
+                type="radio"
+                id={`${field.id}-yes`}
+                name={`radio-group-${field.id}`}
+                value="yes"
+                checked={field.value === 'yes'}
+                onChange={(e) => updateFieldValue(field.id, e.target.value)}
+                className="h-4 w-4 text-blue-600 focus:ring-blue-500 cursor-pointer accent-blue-500"
+              />
+              <label htmlFor={`${field.id}-yes`} className="text-sm md:text-base cursor-pointer font-medium">Yes</label>
+            </div>
+            <div className="flex items-center space-x-2">
+              <input
+                type="radio"
+                id={`${field.id}-no`}
+                name={`radio-group-${field.id}`}
+                value="no"
+                checked={field.value === 'no'}
+                onChange={(e) => updateFieldValue(field.id, e.target.value)}
+                className="h-4 w-4 text-blue-600 focus:ring-blue-500 cursor-pointer accent-blue-500"
+              />
+              <label htmlFor={`${field.id}-no`} className="text-sm md:text-base cursor-pointer font-medium">No</label>
+            </div>
+          </div>
         ) : (
           <input
             type={field.inputType}
