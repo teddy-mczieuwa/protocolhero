@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FieldType } from '../types';
 import FormField from './FormField';
 import FieldMenu from './FieldMenu';
+import FormPreviewModal from './FormPreviewModal';
 
 interface FormPreviewProps {
   formTitle: string;
@@ -36,6 +37,7 @@ const FormPreview: React.FC<FormPreviewProps> = ({
   toggleActiveField
 }) => {
   const { t } = useTranslation('common');
+  const [isPreviewModalOpen, setIsPreviewModalOpen] = useState(false);
   
   return (
     <div className="flex-1 border rounded-lg shadow-md" style={{ backgroundColor: bgColor, fontFamily }}>
@@ -75,7 +77,28 @@ const FormPreview: React.FC<FormPreviewProps> = ({
             setShowFieldMenu(false);
           }} />
         </div>
+        
+        {/* Publish Form Button */}
+        <div className="mt-6">
+          <button 
+            className="flex items-center justify-center w-full bg-blue-600 text-white rounded-lg py-2 md:py-3 hover:bg-blue-700 transition"
+            onClick={() => setIsPreviewModalOpen(true)}
+          >
+            {t('formBuilder.formPreview.publishForm', 'Publish Form')}
+          </button>
+        </div>
       </div>
+      
+      {/* Form Preview Modal */}
+      <FormPreviewModal
+        isOpen={isPreviewModalOpen}
+        onClose={() => setIsPreviewModalOpen(false)}
+        formTitle={formTitle}
+        fields={fields}
+        showLabels={showLabels}
+        bgColor={bgColor}
+        fontFamily={fontFamily}
+      />
     </div>
   );
 };

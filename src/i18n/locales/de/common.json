@@ -15,7 +15,8 @@
       "title": "Formularvorschau",
       "addField": "Feld hinzufügen",
       "defaultTitle": "Mein Formular",
-      "searchFields": "Suchen..."
+      "searchFields": "Suchen...",
+      "publishForm": "Formular veröffentlichen"
     },
     "formSettings": {
       "title": "Formulareinstellungen",

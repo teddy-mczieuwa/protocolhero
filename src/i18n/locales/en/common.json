@@ -15,7 +15,8 @@
       "title": "Form Preview",
       "addField": "Add Field",
       "defaultTitle": "My Form",
-      "searchFields": "Search..."
+      "searchFields": "Search...",
+      "publishForm": "Publish Form"
     },
     "formSettings": {
       "title": "Form Settings",
