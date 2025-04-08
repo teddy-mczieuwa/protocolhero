@@ -63,6 +63,13 @@
       "title": "Language",
       "english": "English",
       "german": "German"
+    },
+    "validation": {
+      "required": "This field is required",
+      "invalidEmail": "Please enter a valid email address",
+      "invalidNumber": "Please enter a valid number",
+      "formError": "Please fix the errors in the form",
+      "formSuccess": "Form submitted successfully!"
     }
   }
 }
