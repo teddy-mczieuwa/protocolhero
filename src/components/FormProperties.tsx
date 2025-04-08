@@ -125,7 +125,7 @@ const FormProperties: React.FC<FormPropertiesProps> = ({
                   <input 
                     type="number" 
                     min="0"
-                    className="w-full border rounded px-3 py-2 text-sm text-gray-800"
+                    className="w-full border rounded px-3 py-2 text-sm text-white"
                     value={field.validation?.minLength || ''}
                     onChange={(e) => {
                       const value = e.target.value ? parseInt(e.target.value) : undefined;
@@ -139,7 +139,7 @@ const FormProperties: React.FC<FormPropertiesProps> = ({
                   <input 
                     type="number" 
                     min="0"
-                    className="w-full border rounded px-3 py-2 text-sm text-gray-800"
+                    className="w-full border rounded px-3 py-2 text-sm text-white"
                     value={field.validation?.maxLength || ''}
                     onChange={(e) => {
                       const value = e.target.value ? parseInt(e.target.value) : undefined;
@@ -157,7 +157,7 @@ const FormProperties: React.FC<FormPropertiesProps> = ({
                   <label className="block text-sm font-medium mb-1 text-gray-800">Min Value</label>
                   <input 
                     type="number"
-                    className="w-full border rounded px-3 py-2 text-sm text-gray-800"
+                    className="w-full border rounded px-3 py-2 text-sm text-white"
                     value={field.validation?.min || ''}
                     onChange={(e) => {
                       const value = e.target.value ? parseInt(e.target.value) : undefined;
@@ -170,7 +170,7 @@ const FormProperties: React.FC<FormPropertiesProps> = ({
                   <label className="block text-sm font-medium mb-1 text-gray-800">Max Value</label>
                   <input 
                     type="number"
-                    className="w-full border rounded px-3 py-2 text-sm text-gray-800"
+                    className="w-full border rounded px-3 py-2 text-sm text-white"
                     value={field.validation?.max || ''}
                     onChange={(e) => {
                       const value = e.target.value ? parseInt(e.target.value) : undefined;
@@ -187,7 +187,7 @@ const FormProperties: React.FC<FormPropertiesProps> = ({
                 <label className="block text-sm font-medium mb-1 text-gray-800">Pattern (Regex)</label>
                 <input 
                   type="text" 
-                  className="w-full border rounded px-3 py-2 text-sm text-gray-800"
+                  className="w-full border rounded px-3 py-2 text-sm text-white"
                   placeholder="e.g. ^[a-zA-Z0-9]+$"
                   value={field.validation?.pattern || ''}
                   onChange={(e) => {
@@ -222,7 +222,7 @@ const FormProperties: React.FC<FormPropertiesProps> = ({
                 <label className="block text-sm font-medium mb-1 text-gray-800">Required Field Message</label>
                 <input 
                   type="text" 
-                  className="w-full border rounded px-3 py-2 text-sm text-gray-800"
+                  className="w-full border rounded px-3 py-2 text-sm text-white"
                   placeholder="This field is required"
                   value={field.validationMessages?.required || ''}
                   onChange={(e) => {
@@ -238,7 +238,7 @@ const FormProperties: React.FC<FormPropertiesProps> = ({
                 <label className="block text-sm font-medium mb-1 text-gray-800">Min Length Message</label>
                 <input 
                   type="text" 
-                  className="w-full border rounded px-3 py-2 text-sm text-gray-800"
+                  className="w-full border rounded px-3 py-2 text-sm text-white"
                   placeholder={`Minimum length is ${field.validation.minLength} characters`}
                   value={field.validationMessages?.minLength || ''}
                   onChange={(e) => {
@@ -254,7 +254,7 @@ const FormProperties: React.FC<FormPropertiesProps> = ({
                 <label className="block text-sm font-medium mb-1 text-gray-800">Max Length Message</label>
                 <input 
                   type="text" 
-                  className="w-full border rounded px-3 py-2 text-sm text-gray-800"
+                  className="w-full border rounded px-3 py-2 text-sm text-white"
                   placeholder={`Maximum length is ${field.validation.maxLength} characters`}
                   value={field.validationMessages?.maxLength || ''}
                   onChange={(e) => {
@@ -270,7 +270,7 @@ const FormProperties: React.FC<FormPropertiesProps> = ({
                 <label className="block text-sm font-medium mb-1 text-gray-800">Min Value Message</label>
                 <input 
                   type="text" 
-                  className="w-full border rounded px-3 py-2 text-sm text-gray-800"
+                  className="w-full border rounded px-3 py-2 text-sm text-white"
                   placeholder={`Minimum value is ${field.validation.min}`}
                   value={field.validationMessages?.min || ''}
                   onChange={(e) => {
@@ -286,7 +286,7 @@ const FormProperties: React.FC<FormPropertiesProps> = ({
                 <label className="block text-sm font-medium mb-1 text-gray-800">Max Value Message</label>
                 <input 
                   type="text" 
-                  className="w-full border rounded px-3 py-2 text-sm text-gray-800"
+                  className="w-full border rounded px-3 py-2 text-sm text-white"
                   placeholder={`Maximum value is ${field.validation.max}`}
                   value={field.validationMessages?.max || ''}
                   onChange={(e) => {
@@ -302,7 +302,7 @@ const FormProperties: React.FC<FormPropertiesProps> = ({
                 <label className="block text-sm font-medium mb-1 text-gray-800">Pattern Mismatch Message</label>
                 <input 
                   type="text" 
-                  className="w-full border rounded px-3 py-2 text-sm text-gray-800"
+                  className="w-full border rounded px-3 py-2 text-sm text-white"
                   placeholder="Value does not match the required pattern"
                   value={field.validationMessages?.pattern || ''}
                   onChange={(e) => {
@@ -318,7 +318,7 @@ const FormProperties: React.FC<FormPropertiesProps> = ({
                 <label className="block text-sm font-medium mb-1 text-gray-800">Email Format Message</label>
                 <input 
                   type="text" 
-                  className="w-full border rounded px-3 py-2 text-sm text-gray-800"
+                  className="w-full border rounded px-3 py-2 text-sm text-white"
                   placeholder="Please enter a valid email address"
                   value={field.validationMessages?.email || ''}
                   onChange={(e) => {
