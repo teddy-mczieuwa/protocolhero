@@ -65,7 +65,23 @@ export const useFormFields = (initialFields: FieldType[] = []) => {
   };
   
   const updateFieldValidationMessages = (id: number, validationMessages: ValidationMessages) => {
-    setFields(updateField(fields, id, { validationMessages }));
+    // First update the validation messages
+    const updatedFields = updateField(fields, id, { validationMessages });
+    
+    // Get the field to validate
+    const fieldToValidate = updatedFields.find(field => field.id === id);
+    if (fieldToValidate) {
+      // Then re-validate the field to update the error message immediately
+      const validatedField = validateField(fieldToValidate);
+      
+      // Update the field with new validation results
+      setFields(updateField(updatedFields, id, { 
+        isValid: validatedField.isValid, 
+        errorMessage: validatedField.errorMessage 
+      }));
+    } else {
+      setFields(updatedFields);
+    }
   };
 
   const toggleActiveField = (id: number) => {

@@ -12,7 +12,6 @@ interface FormFieldProps {
 
 const FormField: React.FC<FormFieldProps> = ({ 
   field, 
-  isActive, 
   showLabels, 
   updateFieldValue, 
   onFieldClick 
@@ -21,15 +20,10 @@ const FormField: React.FC<FormFieldProps> = ({
     onFieldClick(field.id);
   };
 
-  const stopPropagation = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    onFieldClick(field.id);
-  };
-
   return (
     <div 
       key={field.id} 
-      className={`relative ${isActive ? 'ring-2 ring-blue-500' : ''}`}
+      className="relative"
       onClick={handleClick}
     >
       {showLabels && (
@@ -41,7 +35,7 @@ const FormField: React.FC<FormFieldProps> = ({
           {field.validation?.required && <span className="text-red-500 ml-1">*</span>}
         </label>
       )}
-      <div className="flex">
+      <div className="flex flex-col">
         {field.inputType === 'textarea' ? (
           <textarea
             id={`field-${field.id}`}
@@ -121,21 +115,16 @@ const FormField: React.FC<FormFieldProps> = ({
         {field.isValid === false && field.errorMessage && (
           <div 
             id={`error-${field.id}`} 
-            className="text-red-500 text-sm mt-1 absolute right-10"
+            className="bg-red-50 border border-red-200 text-red-700 text-sm mt-2 mb-1 px-3 py-2 rounded-md flex items-center"
             aria-live="polite"
           >
-            {field.errorMessage}
+            <svg className="w-5 h-5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd"></path>
+            </svg>
+            <span>{field.errorMessage}</span>
           </div>
         )}
-        <button 
-          className="ml-1 md:ml-2 p-1 md:p-2 border rounded flex items-center justify-center"
-          onClick={stopPropagation}
-          aria-label="Field options"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 md:h-5 md:w-5" viewBox="0 0 20 20" fill="currentColor">
-            <path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z" />
-          </svg>
-        </button>
+        
       </div>
     </div>
   );
