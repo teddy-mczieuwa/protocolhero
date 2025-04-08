@@ -27,7 +27,6 @@ const FormPreviewModal: React.FC<FormPreviewModalProps> = ({
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formIsValid, setFormIsValid] = useState(true);
   
-  // Update modal fields when props change (when modal opens/closes)
   React.useEffect(() => {
     setModalFields(fields);
     setFormSubmitted(false);
@@ -43,7 +42,6 @@ const FormPreviewModal: React.FC<FormPreviewModalProps> = ({
       )
     );
     
-    // Clear form error when user makes changes
     if (formSubmitted) {
       setFormIsValid(true);
     }
@@ -52,12 +50,10 @@ const FormPreviewModal: React.FC<FormPreviewModalProps> = ({
     <Modal isOpen={isOpen} onClose={onClose} title="Form Preview">
       <div className="w-full" style={{ backgroundColor: bgColor, fontFamily }}>
         <div className="p-6">
-          {/* Form Title */}
           <h2 className="text-xl font-bold mb-6 border-b-2 text-gray-800 pb-2">
             {formTitle}
           </h2>
           
-          {/* Form Fields */}
           <div className="space-y-4">
             {modalFields.map((field) => (
               <div key={field.id} className="mb-4">
@@ -148,7 +144,6 @@ const FormPreviewModal: React.FC<FormPreviewModalProps> = ({
             ))}
           </div>
           
-          {/* Form Error Message */}
           {formSubmitted && !formIsValid && (
             <div className="bg-red-50 border border-red-200 text-red-700 text-sm mb-3 px-3 py-2 rounded-md flex items-center">
               <svg className="w-5 h-5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -158,29 +153,24 @@ const FormPreviewModal: React.FC<FormPreviewModalProps> = ({
             </div>
           )}
           
-          {/* Submit Button */}
           <button 
             onClick={() => {
               setFormSubmitted(true);
               
-              // Validate all fields
               const updatedFields = modalFields.map(field => {
                 let isValid = true;
                 let errorMessage = '';
                 
-                // Check if required fields have values
                 if (field.validation?.required && (!field.value || field.value.trim() === '')) {
                   isValid = false;
                   errorMessage = t('formBuilder.validation.required');
                 }
                 
-                // Email validation
                 if (field.inputType === 'email' && field.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value)) {
                   isValid = false;
                   errorMessage = t('formBuilder.validation.invalidEmail');
                 }
                 
-                // Number validation
                 if (field.inputType === 'number' && field.value && !/^\d+$/.test(field.value)) {
                   isValid = false;
                   errorMessage = t('formBuilder.validation.invalidNumber');
@@ -193,16 +183,12 @@ const FormPreviewModal: React.FC<FormPreviewModalProps> = ({
                 };
               });
               
-              // Update fields with validation results
               setModalFields(updatedFields);
               
-              // Check if all fields are valid
               const allValid = updatedFields.every(field => field.isValid !== false);
               setFormIsValid(allValid);
               
-              // If form is valid, show success message or further action
               if (allValid) {
-                // Here you'd typically submit the form data
                 alert(t('formBuilder.validation.formSuccess'));
               }
             }}

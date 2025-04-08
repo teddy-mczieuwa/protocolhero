@@ -87,7 +87,6 @@ const FormSettings: React.FC<FormSettingsProps> = ({
         </label>
       </div>
       
-      {/* Field Properties (when a field is selected) */}
       <FormProperties
         activeField={activeField}
         fields={fields}

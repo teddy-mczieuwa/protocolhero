@@ -23,9 +23,7 @@ export const useFormFields = (initialFields: FieldType[] = []) => {
   };
   
   const updateFieldValue = (id: number, value: string) => {
-    // Update field value first
     const updatedFields = updateField(fields, id, { value });
-    // Then validate the updated field
     const fieldToValidate = updatedFields.find(field => field.id === id);
     if (fieldToValidate) {
       const validatedField = validateField(fieldToValidate);
@@ -65,16 +63,10 @@ export const useFormFields = (initialFields: FieldType[] = []) => {
   };
   
   const updateFieldValidationMessages = (id: number, validationMessages: ValidationMessages) => {
-    // First update the validation messages
     const updatedFields = updateField(fields, id, { validationMessages });
-    
-    // Get the field to validate
     const fieldToValidate = updatedFields.find(field => field.id === id);
     if (fieldToValidate) {
-      // Then re-validate the field to update the error message immediately
       const validatedField = validateField(fieldToValidate);
-      
-      // Update the field with new validation results
       setFields(updateField(updatedFields, id, { 
         isValid: validatedField.isValid, 
         errorMessage: validatedField.errorMessage 
@@ -88,12 +80,10 @@ export const useFormFields = (initialFields: FieldType[] = []) => {
     setActiveField(id === activeField ? null : id);
   };
 
-  // Validate all form fields
   const validateAllFields = () => {
     setFields(validateForm(fields));
   };
   
-  // Check if form is valid
   const checkFormValidity = () => {
     return isFormValid(fields);
   };

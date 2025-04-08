@@ -1,9 +1,6 @@
-
-
-import { FormBuilder } from './features/form-builder';
+import FormBuilder from './components/FormBuilder';
 import LanguageSwitcher from './components/LanguageSwitcher';
 
-// Import i18n configuration
 import './i18n/i18n';
 
 function App() {

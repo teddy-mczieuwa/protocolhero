@@ -1,6 +1,5 @@
 import React from 'react';
 import { FieldType } from '../types';
-// Remove unused import
 
 interface FormFieldProps {
   field: FieldType;
@@ -111,7 +110,6 @@ const FormField: React.FC<FormFieldProps> = ({
             aria-describedby={field.isValid === false ? `error-${field.id}` : undefined}
           />
         )}
-        {/* Display validation error message if field is invalid */}
         {field.isValid === false && field.errorMessage && (
           <div 
             id={`error-${field.id}`} 

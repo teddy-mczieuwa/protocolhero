@@ -19,8 +19,8 @@ const FormProperties: React.FC<FormPropertiesProps> = ({
   updateFieldType,
   updateFieldPlaceholder,
   removeField,
-  updateFieldValidation = () => {}, // Default no-op function
-  updateFieldValidationMessages = () => {} // Default no-op function
+  updateFieldValidation = () => {}, 
+  updateFieldValidationMessages = () => {} 
 }) => {
   const [showValidationSettings, setShowValidationSettings] = useState(false);
   if (activeField === null) return null;
@@ -73,7 +73,6 @@ const FormProperties: React.FC<FormPropertiesProps> = ({
           />
         </div>
         
-        {/* Validation Settings Toggle */}
         <div className="pt-4 pb-2">
           <button
             type="button"
@@ -93,12 +92,10 @@ const FormProperties: React.FC<FormPropertiesProps> = ({
           </button>
         </div>
         
-        {/* Validation Settings Panel */}
         {showValidationSettings && (
           <div className="mt-4 p-4 bg-gray-50 rounded-md border border-gray-300">
             <h3 className="text-md font-semibold mb-3 text-gray-800">Validation Rules</h3>
             
-            {/* Required Field Toggle */}
             <div className="flex items-center justify-between mb-4">
               <label className="text-sm font-medium text-gray-800">Required</label>
               <div className="relative inline-block w-10 mr-2 align-middle select-none">
@@ -121,7 +118,6 @@ const FormProperties: React.FC<FormPropertiesProps> = ({
               </div>
             </div>
 
-            {/* Min/Max Length - For text, textarea, password, email, tel */}
             {['text', 'textarea', 'password', 'email', 'tel'].includes(field.inputType) && (
               <div className="grid grid-cols-2 gap-3 mb-4">
                 <div>
@@ -155,7 +151,6 @@ const FormProperties: React.FC<FormPropertiesProps> = ({
               </div>
             )}
             
-            {/* Min/Max Value - For number */}
             {field.inputType === 'number' && (
               <div className="grid grid-cols-2 gap-3 mb-4">
                 <div>
@@ -187,7 +182,6 @@ const FormProperties: React.FC<FormPropertiesProps> = ({
               </div>
             )}
             
-            {/* Pattern/Regex - For text, email, tel, password */}
             {['text', 'email', 'tel', 'password'].includes(field.inputType) && (
               <div className="mb-4">
                 <label className="block text-sm font-medium mb-1 text-gray-800">Pattern (Regex)</label>
@@ -205,7 +199,6 @@ const FormProperties: React.FC<FormPropertiesProps> = ({
               </div>
             )}
 
-            {/* Email validation - specifically for email fields */}
             {field.inputType === 'email' && (
               <div className="flex items-center mb-4">
                 <input 
@@ -224,7 +217,6 @@ const FormProperties: React.FC<FormPropertiesProps> = ({
 
             <h3 className="text-md font-semibold mb-3 mt-6 text-gray-800">Error Messages</h3>
 
-            {/* Required field error message */}
             {field.validation?.required && (
               <div className="mb-4">
                 <label className="block text-sm font-medium mb-1 text-gray-800">Required Field Message</label>
@@ -241,7 +233,6 @@ const FormProperties: React.FC<FormPropertiesProps> = ({
               </div>
             )}
 
-            {/* Min length error message */}
             {field.validation?.minLength !== undefined && (
               <div className="mb-4">
                 <label className="block text-sm font-medium mb-1 text-gray-800">Min Length Message</label>
@@ -258,7 +249,6 @@ const FormProperties: React.FC<FormPropertiesProps> = ({
               </div>
             )}
 
-            {/* Max length error message */}
             {field.validation?.maxLength !== undefined && (
               <div className="mb-4">
                 <label className="block text-sm font-medium mb-1 text-gray-800">Max Length Message</label>
@@ -275,7 +265,6 @@ const FormProperties: React.FC<FormPropertiesProps> = ({
               </div>
             )}
 
-            {/* Min value error message */}
             {field.validation?.min !== undefined && (
               <div className="mb-4">
                 <label className="block text-sm font-medium mb-1 text-gray-800">Min Value Message</label>
@@ -292,7 +281,6 @@ const FormProperties: React.FC<FormPropertiesProps> = ({
               </div>
             )}
 
-            {/* Max value error message */}
             {field.validation?.max !== undefined && (
               <div className="mb-4">
                 <label className="block text-sm font-medium mb-1 text-gray-800">Max Value Message</label>
@@ -309,7 +297,6 @@ const FormProperties: React.FC<FormPropertiesProps> = ({
               </div>
             )}
 
-            {/* Pattern error message */}
             {field.validation?.pattern && (
               <div className="mb-4">
                 <label className="block text-sm font-medium mb-1 text-gray-800">Pattern Mismatch Message</label>
@@ -326,7 +313,6 @@ const FormProperties: React.FC<FormPropertiesProps> = ({
               </div>
             )}
 
-            {/* Email error message */}
             {field.validation?.email && (
               <div className="mb-4">
                 <label className="block text-sm font-medium mb-1 text-gray-800">Email Format Message</label>

@@ -11,12 +11,10 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
   const modalRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Close modal when escape key is pressed
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
     };
 
-    // Close modal when clicking outside
     const handleClickOutside = (e: MouseEvent) => {
       if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
         onClose();
@@ -26,7 +24,6 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
     if (isOpen) {
       document.addEventListener('keydown', handleEscape);
       document.addEventListener('mousedown', handleClickOutside);
-      // Prevent scrolling of background content
       document.body.style.overflow = 'hidden';
     }
 
@@ -45,7 +42,6 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
         ref={modalRef} 
         className="bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] flex flex-col"
       >
-        {/* Modal header */}
         <div className="flex justify-between items-center px-6 py-4 border-b">
           <h2 className="text-xl font-semibold">{title}</h2>
           <button
@@ -58,12 +54,10 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
           </button>
         </div>
         
-        {/* Modal content */}
         <div className="px-6 py-4 overflow-y-auto flex-1">
           {children}
         </div>
         
-        {/* Modal footer */}
         <div className="border-t px-6 py-4 flex justify-end">
           <button
             onClick={onClose}

@@ -42,7 +42,6 @@ const FormPreview: React.FC<FormPreviewProps> = ({
   return (
     <div className="flex-1 border rounded-lg shadow-md" style={{ backgroundColor: bgColor, fontFamily }}>
       <div className="p-3 md:p-6">
-        {/* Form Title */}
         <input 
           type="text" 
           value={formTitle}
