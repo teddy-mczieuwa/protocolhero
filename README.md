@@ -49,6 +49,7 @@ This project empowers users to create custom forms with styling options, various
 
 ## 📂 Project Structure
 
+```
 protocolhero/
 ├── public/ # Static assets
 │ └── index.html # Main page
@@ -74,6 +75,7 @@ protocolhero/
 │ └── utils/ # Utility functions
 │ └── form-utils.ts # Form utility functions
 ├── package.json # Project dependencies and scripts
+```
 
 ## 🛠️ Technology Stack
 
