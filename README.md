@@ -1,101 +1,88 @@
-# ProtocolHero - FormBuilder Assessment
+# ProtocolHero - Interactive Form Builder
 
-The FormBuilder allows users to create custom forms with various input types, styling options, and field properties.
+This project empowers users to create custom forms with styling options, various input types, and advanced field properties.
 
-## Features
+## 🌟 Key Features
 
-- **Two-panel Layout**: Side-by-side form preview and styling options interface
-- **Dynamic Field Creation**: Support for various input types (text, email, checkbox, etc.)
-- **Visual Customization**: Easily change background colors, font families, and field labels
-- **Field Property Editing**: Modify labels, placeholders, and field types
-- **Intuitive Interface**: Drag and drop-style form building experience
+- **Interactive Two-Panel Interface**: Real-time form preview alongside configuration panels
+- **Rich Form Elements**: Support for text, email, number, checkbox, radio, select, and more input types
+- **Advanced Styling Options**: Customize colors, fonts, spacing, and layouts to match your brand
+- **Field Validation Rules**: Set required fields, input patterns, and custom validation messages
+- **Responsive Design**: Forms adapt beautifully to all screen sizes
+- **Real-Time Preview**: See your changes instantly while editing
 
-## Getting Started
+## 🚀 Getting Started
 
 ### Prerequisites
 
-- Node.js (v18 or higher recommended)
-- npm or yarn
+- Node.js (v18 or higher)
+- npm or yarn package manager
 
-### Installation
+### Quick Start
 
-1. Clone the repository
+1. **Clone the repository**
 
    ```bash
    git clone https://github.com/yourusername/protocolhero.git
    cd protocolhero
    ```
 
-2. Install dependencies
+2. **Install dependencies**
 
    ```bash
    npm install
-   # or
+   # or with yarn
    yarn
    ```
 
-3. Start the development server
+3. **Start the development server**
 
    ```bash
    npm run dev
-   # or
+   # or with yarn
    yarn dev
    ```
 
-4. Open your browser and navigate to `http://localhost:5173` to view the application
+4. **Access the application**
 
-## Project Structure
+   Open your browser and visit: `http://localhost:5173`
 
-```
+## 📂 Project Structure
+
 protocolhero/
-├── public/                # Static files
+├── public/ # Static assets
+│ └── index.html # Main page
 ├── src/
-│   ├── assets/            # Images, fonts, etc.
-│   ├── components/        # Shared components
-│   ├── features/
-│   │   └── form-builder/  # Form Builder feature
-│   │       ├── components/# UI components for the form builder
-│   │       ├── hooks/     # Custom React hooks
-│   │       ├── types/     # TypeScript type definitions
-│   │       └── utils/     # Utility functions
-│   ├── App.tsx            # Main application component
-│   └── main.tsx           # Entry point
-├── .gitignore
-├── package.json
-├── tsconfig.json
-└── README.md
-```
+│ ├── components/ # React components
+│ │ ├── form-builder/ # FormBuilder component
+│ │ ├── form-field/ # FormField component
+│ │ ├── form-header/ # FormHeader component
+│ │ ├── form-preview/ # FormPreview component
+│ │ ├── form-preview-modal/ # FormPreviewModal component
+│ │ ├── form-properties/ # FormProperties component
+│ │ ├── form-settings/ # FormSettings component
+│ │ ├── sidebar/ # Sidebar component
+│ │ └── sidebar-item/ # SidebarItem component
+│ ├── App.tsx # Main application component
+│ ├── hooks/ # Custom hooks
+│ │ └── useFormFields.ts # useFormFields hook
+│ ├── i18n/ # Internationalization
+│ │ └── i18n.ts # i18next configuration
+│ ├── main.tsx # Application entry point
+│ ├── types/ # Type definitions
+│ │ └── form.ts # Form type
+│ └── utils/ # Utility functions
+│ └── form-utils.ts # Form utility functions
+├── package.json # Project dependencies and scripts
 
-## Tech Stack
+## 🛠️ Technology Stack
 
-- **React**: UI library
-- **TypeScript**: For type safety
-- **Vite**: Build tool and dev server
-- **TailwindCSS**: Utility-first CSS framework
+- **React**: Frontend library for building the user interface
+- **TypeScript**: For type safety and improved developer experience
+- **Vite**: Modern build tool for faster development and optimized builds
+- **TailwindCSS**: Utility-first CSS framework for rapid UI development
 
-## Building for Production
+## 🔧 Development Commands
 
-To build the app for production, run:
-
-```bash
-npm run build
-# or
-yarn build
-```
-
-The build artifacts will be stored in the `dist/` directory.
-
-## Preview Production Build
-
-To preview the production build locally:
-
-```bash
-npm run preview
-# or
-yarn preview
-```
-
-## Development
-
-- `npm run lint` - Run ESLint to check for code quality and style issues
-- `npm run build` - Build the project for production
+- `npm run dev` - Start the development server
+- `npm run test` - Run tests
