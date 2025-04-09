@@ -9,17 +9,17 @@ interface FormSettingsProps {
   showLabels: boolean;
   colorOptions: string[];
   fontOptions: string[];
-  activeField: number | null;
+  activeField: string | number | null;
   fields: FieldType[];
   setBgColor: (color: string) => void;
   setFontFamily: (font: string) => void;
   toggleLabels: () => void;
-  updateFieldLabel: (id: number, label: string) => void;
-  updateFieldType: (id: number, inputType: string) => void;
-  updateFieldPlaceholder: (id: number, placeholder: string) => void;
-  updateFieldValidation?: (id: number, validation: ValidationRule) => void;
-  updateFieldValidationMessages?: (id: number, validationMessages: ValidationMessages) => void;
-  removeField: (id: number) => void;
+  updateFieldLabel: (id: string | number, label: string) => void;
+  updateFieldType: (id: string | number, inputType: string) => void;
+  updateFieldPlaceholder: (id: string | number, placeholder: string) => void;
+  updateFieldValidation?: (id: string | number, validation: ValidationRule) => void;
+  updateFieldValidationMessages?: (id: string | number, validationMessages: ValidationMessages) => void;
+  removeField: (id: string | number) => void;
 }
 
 const FormSettings: React.FC<FormSettingsProps> = ({

@@ -36,7 +36,7 @@ export const createNewField = (type: string = 'text'): FieldType => {
 
 export const updateField = (
   fields: FieldType[], 
-  fieldId: number, 
+  fieldId: string | number, 
   updateProps: Partial<FieldType>
 ): FieldType[] => {
   return fields.map(field => {
@@ -47,7 +47,7 @@ export const updateField = (
   });
 };
 
-export const removeFieldById = (fields: FieldType[], fieldId: number): FieldType[] => {
+export const removeFieldById = (fields: FieldType[], fieldId: string | number): FieldType[] => {
   return fields.filter(field => field.id !== fieldId);
 };
 

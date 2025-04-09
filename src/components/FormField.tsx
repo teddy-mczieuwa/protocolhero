@@ -5,8 +5,8 @@ interface FormFieldProps {
   field: FieldType;
   isActive: boolean;
   showLabels: boolean;
-  updateFieldValue: (id: number, value: string) => void;
-  onFieldClick: (id: number) => void;
+  updateFieldValue: (id: string | number, value: string) => void;
+  onFieldClick: (id: string | number) => void;
 }
 
 const FormField: React.FC<FormFieldProps> = ({ 
@@ -83,7 +83,7 @@ const FormField: React.FC<FormFieldProps> = ({
                 onChange={(e) => updateFieldValue(field.id, e.target.value)}
                 className="h-4 w-4 text-blue-600 focus:ring-blue-500 cursor-pointer accent-blue-500"
               />
-              <label htmlFor={`${field.id}-yes`} className="text-sm md:text-base cursor-pointer font-medium">Yes</label>
+              <label htmlFor={`${field.id}-yes`} className="text-sm md:text-base cursor-pointer font-medium text-gray-700 ">Yes</label>
             </div>
             <div className="flex items-center space-x-2">
               <input
@@ -95,7 +95,7 @@ const FormField: React.FC<FormFieldProps> = ({
                 onChange={(e) => updateFieldValue(field.id, e.target.value)}
                 className="h-4 w-4 text-blue-600 focus:ring-blue-500 cursor-pointer accent-blue-500"
               />
-              <label htmlFor={`${field.id}-no`} className="text-sm md:text-base cursor-pointer font-medium">No</label>
+              <label htmlFor={`${field.id}-no`} className="text-sm md:text-base cursor-pointer font-medium text-gray-700 ">No</label>
             </div>
           </div>
         ) : (

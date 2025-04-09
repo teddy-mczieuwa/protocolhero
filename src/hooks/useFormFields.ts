@@ -4,7 +4,7 @@ import { createNewField, updateField, removeFieldById, validateField, validateFo
 
 export const useFormFields = (initialFields: FieldType[] = []) => {
   const [fields, setFields] = useState<FieldType[]>(initialFields);
-  const [activeField, setActiveField] = useState<number | null>(null);
+  const [activeField, setActiveField] = useState<string | number | null>(null);
   
   const addField = (type: string = 'text') => {
     const newField = createNewField(type);
@@ -12,7 +12,7 @@ export const useFormFields = (initialFields: FieldType[] = []) => {
     return newField;
   };
   
-  const removeField = (id: number) => {
+  const removeField = (id: string | number) => {
     if (fields.length > 1) {
       const updatedFields = removeFieldById(fields, id);
       setFields(updatedFields);
@@ -22,7 +22,7 @@ export const useFormFields = (initialFields: FieldType[] = []) => {
     }
   };
   
-  const updateFieldValue = (id: number, value: string) => {
+  const updateFieldValue = (id: string | number, value: string) => {
     const updatedFields = updateField(fields, id, { value });
     const fieldToValidate = updatedFields.find(field => field.id === id);
     if (fieldToValidate) {
@@ -36,19 +36,19 @@ export const useFormFields = (initialFields: FieldType[] = []) => {
     }
   };
 
-  const updateFieldType = (id: number, inputType: string) => {
+  const updateFieldType = (id: string | number, inputType: string) => {
     setFields(updateField(fields, id, { inputType }));
   };
 
-  const updateFieldLabel = (id: number, label: string) => {
+  const updateFieldLabel = (id: string | number, label: string) => {
     setFields(updateField(fields, id, { label }));
   };
 
-  const updateFieldPlaceholder = (id: number, placeholder: string) => {
+  const updateFieldPlaceholder = (id: string | number, placeholder: string) => {
     setFields(updateField(fields, id, { placeholder }));
   };
   
-  const updateFieldValidation = (id: number, validation: ValidationRule) => {
+  const updateFieldValidation = (id: string | number, validation: ValidationRule) => {
     const updatedFields = updateField(fields, id, { validation });
     const fieldToValidate = updatedFields.find(field => field.id === id);
     if (fieldToValidate) {
@@ -62,7 +62,7 @@ export const useFormFields = (initialFields: FieldType[] = []) => {
     }
   };
   
-  const updateFieldValidationMessages = (id: number, validationMessages: ValidationMessages) => {
+  const updateFieldValidationMessages = (id: string | number, validationMessages: ValidationMessages) => {
     const updatedFields = updateField(fields, id, { validationMessages });
     const fieldToValidate = updatedFields.find(field => field.id === id);
     if (fieldToValidate) {
@@ -76,7 +76,7 @@ export const useFormFields = (initialFields: FieldType[] = []) => {
     }
   };
 
-  const toggleActiveField = (id: number) => {
+  const toggleActiveField = (id: string | number) => {
     setActiveField(id === activeField ? null : id);
   };
 

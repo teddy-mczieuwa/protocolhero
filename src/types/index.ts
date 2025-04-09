@@ -21,7 +21,7 @@ export type ValidationMessages = {
 };
 
 export type FieldType = {
-  id: number;
+  id: string | number;
   value: string;
   inputType: string;
   label: string;

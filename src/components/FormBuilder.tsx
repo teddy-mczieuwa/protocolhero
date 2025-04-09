@@ -6,6 +6,7 @@ import FormSettings from './FormSettings';
 import FormPreviewModal from './FormPreviewModal';
 import { useFormFields } from '../hooks/useFormFields';
 import { useFormSettings } from '../hooks/useFormSettings';
+import { v4 as uuidv4 } from 'uuid';
 
 const FormBuilder: React.FC = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -27,8 +28,8 @@ const FormBuilder: React.FC = () => {
     updateFieldValidationMessages,
     toggleActiveField
   } = useFormFields([
-    { id: 1, value: '', inputType: 'text', label: 'First Name', placeholder: 'John' },
-    { id: 2, value: '', inputType: 'text', label: 'Last Name', placeholder: 'Doe' }
+    { id: uuidv4(), value: '', inputType: 'text', label: 'First Name', placeholder: 'John' },
+    { id: uuidv4(), value: '', inputType: 'text', label: 'Last Name', placeholder: 'Doe' }
   ]);
 
   const {

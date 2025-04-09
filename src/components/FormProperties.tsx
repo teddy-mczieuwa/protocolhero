@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { FieldType, ValidationRule, ValidationMessages } from '../types';
 
 interface FormPropertiesProps {
-  activeField: number | null;
+  activeField: string | number | null;
   fields: FieldType[];
-  updateFieldLabel: (id: number, label: string) => void;
-  updateFieldType: (id: number, inputType: string) => void;
-  updateFieldPlaceholder: (id: number, placeholder: string) => void;
-  removeField: (id: number) => void;
-  updateFieldValidation?: (id: number, validation: ValidationRule) => void;
-  updateFieldValidationMessages?: (id: number, validationMessages: ValidationMessages) => void;
+  updateFieldLabel: (id: string | number, label: string) => void;
+  updateFieldType: (id: string | number, inputType: string) => void;
+  updateFieldPlaceholder: (id: string | number, placeholder: string) => void;
+  removeField: (id: string | number) => void;
+  updateFieldValidation?: (id: string | number, validation: ValidationRule) => void;
+  updateFieldValidationMessages?: (id: string | number, validationMessages: ValidationMessages) => void;
 }
 
 const FormProperties: React.FC<FormPropertiesProps> = ({
@@ -38,7 +38,7 @@ const FormProperties: React.FC<FormPropertiesProps> = ({
             type="text"
             value={field.label}
             onChange={e => updateFieldLabel(field.id, e.target.value)}
-            className="w-full border rounded-md px-3 py-2"
+            className="w-full border rounded-md px-3 py-2 text-white"
           />
         </div>
         
@@ -58,8 +58,6 @@ const FormProperties: React.FC<FormPropertiesProps> = ({
             <option value="radio">Radio</option>
             <option value="select">Dropdown</option>
             <option value="textarea">Text Area</option>
-            <option value="button">Button</option>
-            <option value="switch">Switch</option>
           </select>
         </div>
         

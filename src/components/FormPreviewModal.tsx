@@ -33,7 +33,7 @@ const FormPreviewModal: React.FC<FormPreviewModalProps> = ({
     setFormIsValid(true);
   }, [fields, isOpen]);
   
-  const updateFieldValue = (id: number, value: string) => {
+  const updateFieldValue = (id: string | number, value: string) => {
     setModalFields(prevFields => 
       prevFields.map(field => 
         field.id === id 

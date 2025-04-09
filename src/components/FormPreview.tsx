@@ -8,7 +8,7 @@ interface FormPreviewProps {
   formTitle: string;
   setFormTitle: (title: string) => void;
   fields: FieldType[];
-  activeField: number | null;
+  activeField: string | number | null;
   showLabels: boolean;
   showFieldMenu: boolean;
   bgColor: string;
@@ -16,8 +16,8 @@ interface FormPreviewProps {
   toggleFieldMenu: () => void;
   setShowFieldMenu: (show: boolean) => void;
   addField: (type: string) => void;
-  updateFieldValue: (id: number, value: string) => void;
-  toggleActiveField: (id: number) => void;
+  updateFieldValue: (id: string | number, value: string) => void;
+  toggleActiveField: (id: string | number) => void;
   isPreviewModalOpen: boolean;
   togglePreviewModal: () => void;
 }
