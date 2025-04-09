@@ -48,6 +48,7 @@ const FormSettings: React.FC<FormSettingsProps> = ({
         {colorOptions.map((color) => (
           <button
             key={color}
+            data-testid={`color-option-${color}`}
             className={`w-8 h-8 rounded-full ${color === 'white' ? 'border border-gray-300' : ''} ${bgColor === color ? 'ring-2 ring-offset-2 ring-blue-500' : ''}`}
             style={{ backgroundColor: color }}
             onClick={() => setBgColor(color)}

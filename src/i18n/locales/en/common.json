@@ -9,7 +9,10 @@
       "dashboard": "Dashboard",
       "formBuilder": "Form Builder",
       "templates": "Templates",
-      "settings": "Settings"
+      "settings": "Settings",
+      "analytics": "Analytics",
+      "profile": "My Profile",
+      "logout": "Logout"
     },
     "formPreview": {
       "title": "Form Preview",

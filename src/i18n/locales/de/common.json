@@ -9,7 +9,10 @@
       "dashboard": "Dashboard",
       "formBuilder": "Formular-Builder",
       "templates": "Vorlagen",
-      "settings": "Einstellungen"
+      "settings": "Einstellungen",
+      "analytics": "Analytik",
+      "profile": "Mein Profil",
+      "logout": "Abmelden"
     },
     "formPreview": {
       "title": "Formularvorschau",
@@ -63,6 +66,13 @@
       "title": "Sprache",
       "english": "Englisch",
       "german": "Deutsch"
+    },
+    "validation": {
+      "required": "Dieses Feld ist erforderlich",
+      "invalidEmail": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+      "invalidNumber": "Bitte geben Sie eine gültige Nummer ein",
+      "formError": "Bitte beheben Sie die Fehler im Formular",
+      "formSuccess": "Formular erfolgreich abgesendet!"
     }
   }
 }
